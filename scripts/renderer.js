@@ -6,7 +6,7 @@ class Renderer {
     this.scale = scale;
 
     this.canvas = document.querySelector('canvas');
-    this.context = this.canvas.getContext('2d');
+    this.ctx = this.canvas.getContext('2d');
 
     // scale up the screen size since it's too small
     this.canvas.width = this.cols * this.scale;
@@ -45,6 +45,34 @@ class Renderer {
   clear() {
     // clears the display
     this.display = new Array(this.cols * this.rows);
+  }
+
+  // renders the array 60 fps
+  render() {
+    // Clears the display ever render cycle
+    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+    // Loop through display array
+    for (let i = 0; i < this.cols * this.rows; i++) {
+      // Grabs the positionX of the pixel based off of 'i'
+      let x = (i % this.cols) * this.scale;
+
+      // Grabs the positionY of the pixel based off of 'i'
+      let y = Math.floor(i / this.cols) * this.scale;
+
+      // if the value at this.display[i] == 1, then draw a pixel
+      if (this.display[i]) {
+        // Set the pixel color to black
+        this.ctx.fillStyle = '#000';
+
+        // Place a pixel at position(x, y) with a width and height of scale
+        this.ctx.fillRect(x, y, this.scale, this.scale);
+      }
+    }
+  }
+  testRender() {
+    this.setPixel(0, 0);
+    this.setPixel(5, 2);
   }
 }
 
