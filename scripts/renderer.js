@@ -49,7 +49,7 @@ class Renderer {
 
   // renders the array 60 fps
   render() {
-    // Clears the display ever render cycle
+    // Clears the display every render cycle
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
     // Loop through display array
@@ -62,8 +62,8 @@ class Renderer {
 
       // if the value at this.display[i] == 1, then draw a pixel
       if (this.display[i]) {
-        // Set the pixel color to black
-        this.ctx.fillStyle = '#000';
+        // Set the pixel color to white
+        this.ctx.fillStyle = '#68BB59';
 
         // Place a pixel at position(x, y) with a width and height of scale
         this.ctx.fillRect(x, y, this.scale, this.scale);

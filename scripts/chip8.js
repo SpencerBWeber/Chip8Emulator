@@ -3,7 +3,7 @@ import Keyboard from "./keyboard.js";
 import Speaker from "./speaker.js";
 import CPU from "./cpu.js";
 
-const renderer = new Renderer(20);
+const renderer = new Renderer(22.5);
 const keyboard = new Keyboard();
 const speaker = new Speaker();
 const cpu = new CPU(renderer, keyboard, speaker);
@@ -18,7 +18,7 @@ function init() {
   startTime = then;
 
   cpu.loadSpritesIntoMemory();
-  cpu.loadRom('BLINKY');
+  cpu.loadRom('BLITZ');
   loop = requestAnimationFrame(step);
 }
 
