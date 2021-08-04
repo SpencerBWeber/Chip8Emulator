@@ -1,6 +1,8 @@
 import Renderer from "./renderer.js";
+import Keyboard from "./keyboard.js";
 
 const renderer = new Renderer(10);
+const keyboard = new Keyboard();
 
 let loop;
 
@@ -10,11 +12,6 @@ function init() {
   fpsInterval = 1000 / fps;
   then = Date.now();
   startTime = then;
-
-  // TESTING CODE REMOVE WHEN DONe
-  renderer.testRender();
-  renderer.render();
-  // END TESTING CODE
 
   loop = requestAnimationFrame(step);
 }
