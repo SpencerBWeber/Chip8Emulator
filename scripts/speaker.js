@@ -1,21 +1,21 @@
 class Speaker {
   constructor() {
-    const AudioContext = window.AudioContext || window.webkit.AudioContext;
+    const AudioContext = window.AudioContext;
 
     this.audioCtx = new AudioContext();
 
     // Create a gain, (volume control)
-    this.gain = this.audioCtx.createGain();
+    this.gainNode = this.audioCtx.createGain();
     this.finish = this.audioCtx.destination;
 
-    // Mute audio
-    this.gain.setValueAtTime(0, this.audioCts.currentTime);
+    // Mute audio]
+    this.gainNode.gain.setValueAtTime(0, this.audioCtx.currentTime);
 
     // Unmute audio
-    this.gain.setValueAtTime(1, this.audioCtx.currentTime);
+    this.gainNode.gain.setValueAtTime(1, this.audioCtx.currentTime);
 
     // Connect gain to audio context
-    this.gain.connect(this.finish);
+    this.gainNode.connect(this.finish);
   }
 
   play(frequency) {
